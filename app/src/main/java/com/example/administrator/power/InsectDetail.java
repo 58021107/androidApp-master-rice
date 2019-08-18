@@ -23,17 +23,17 @@ public class InsectDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inscet_detail);
-
+//ระบุ id ให้กับ ไฟล์ xml มารองรับกับหน้าจอแอพฯ
         TextView insect_name = findViewById(R.id.insect_name);
         TextView insect_feature = findViewById(R.id.insect_feature);
         TextView insect_outbreak = findViewById(R.id.insect_outbreak);
         TextView insect_protect = findViewById(R.id.insect_protect);
         mQueue = Volley.newRequestQueue(this);
-
+//ดึงข้อมูลมาแสดงในรูปแบบ json
         getJson(insect_name, insect_feature, insect_outbreak, insect_protect, savedInstanceState);
 
     }
-
+    //รับค่ารายชื่อที่ส่งมาแสดงออกหน้าจอ
     public void getJson(final TextView insect_name, final TextView insect_feature, final TextView insect_outbreak, final TextView insect_protect, Bundle savedInstanceState) {
         String newString;
         String url = "";
@@ -50,7 +50,7 @@ public class InsectDetail extends AppCompatActivity {
             url = "http://10.0.2.2/project/data/InscetDetail.php?id="+newString;
         }
 
-
+//ดึงข้อมูล json จากฐานข้อมูลมาเก็บไว้ในตัวแปรที่มาลองรับในชื่อนั้นๆ
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

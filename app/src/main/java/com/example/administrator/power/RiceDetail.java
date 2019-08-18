@@ -23,18 +23,18 @@ public class RiceDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rice_detail);
-
+//ระบุ id ให้กับ ไฟล์ xml มารองรับกับหน้าจอแอพฯ
         TextView name = findViewById(R.id.name);
         TextView feature = findViewById(R.id.feature);
         TextView area = findViewById(R.id.area);
         TextView product = findViewById(R.id.product);
         TextView nature = findViewById(R.id.nature);
         mQueue = Volley.newRequestQueue(this);
-
+//ดึงข้อมูลมาแสดงในรูปแบบ json
         getJson(name, feature, area, product, nature, savedInstanceState);
 
     }
-
+//รับค่ารายชื่อที่ส่งมาแสดงออกหน้าจอ
     public void getJson(final TextView name, final TextView feature, final TextView area, final TextView product, final TextView nature, Bundle savedInstanceState) {
         String newString;
         String url = "";
@@ -51,7 +51,7 @@ public class RiceDetail extends AppCompatActivity {
             url = "http://10.0.2.2/project/data/RiceDetail.php?id="+newString;
         }
 
-
+//ดึงข้อมูล json จากฐานข้อมูลมาเก็บไว้ในตัวแปรที่มาลองรับในชื่อนั้นๆ
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

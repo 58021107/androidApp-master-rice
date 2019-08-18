@@ -19,7 +19,7 @@ public class page2 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_page2, container, false);
-
+//คลิกไปยังพันธุ์ข้าวและการเพาะปลูก
         Button RiceFarming = (Button) view.findViewById(R.id.buttonRiceFarming);
         RiceFarming.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,7 +28,7 @@ public class page2 extends Fragment {
                 startActivity(intent);
             }
         });
-
+//คลิกไปยังดูแลบำรุงรักษา
         Button CareNourish = (Button) view.findViewById(R.id.buttonCareNourish);
         CareNourish.setOnClickListener(new View.OnClickListener() {
             @Override

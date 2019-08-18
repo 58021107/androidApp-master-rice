@@ -23,15 +23,15 @@ public class FertilizerDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fertilizer_detail);
-
+//ระบุ id ให้กับ ไฟล์ xml มารองรับกับหน้าจอแอพฯ
         TextView fertilizer_name = findViewById(R.id.fertilizer_name);
         TextView fertilizer_period = findViewById(R.id.fertilizer_period);
         mQueue = Volley.newRequestQueue(this);
-
+//ดึงข้อมูลมาแสดงในรูปแบบ json
         getJson(fertilizer_name, fertilizer_period, savedInstanceState);
 
     }
-
+    //รับค่ารายชื่อที่ส่งมาแสดงออกหน้าจอ
     public void getJson(final TextView fertilizer_name, final TextView fertilizer_period, Bundle savedInstanceState) {
         String newString;
         String url = "";
@@ -48,7 +48,7 @@ public class FertilizerDetail extends AppCompatActivity {
             url = "http://10.0.2.2/project/data/FertilizerDetail.php?id="+newString;
         }
 
-
+//ดึงข้อมูล json จากฐานข้อมูลมาเก็บไว้ในตัวแปรที่มาลองรับในชื่อนั้นๆ
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

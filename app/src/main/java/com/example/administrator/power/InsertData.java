@@ -50,7 +50,7 @@ import static com.android.volley.Request.*;
 
 
 public class InsertData extends AppCompatActivity {
-
+//ส่วนที่กรอกข้อมูลเข้าฐานข้อมูล
     EditText editName;
     EditText editDate;
     EditText editFarming;

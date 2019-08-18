@@ -37,7 +37,7 @@ public class farming extends AppCompatActivity implements AdapterView.OnItemSele
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farming);
 
-
+//สร้างให้เรื่องข้อมูลแบบ spinner selectDate
         selectDate = findViewById(R.id.btnDate);
         date = findViewById(R.id.SelectedDate);
 

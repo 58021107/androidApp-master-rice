@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.Button;
 
 public class nourish extends AppCompatActivity {
-
+//หน้าดูแลบำรุงรักษา
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nourish);
-
+//คลิกไปดูรายชื่อโรคข้าว
         Button Disease = (Button)findViewById(R.id.buttonDisease);
         Disease.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -22,7 +22,7 @@ public class nourish extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+//คลิกไปดูรายชื่อแมลงศัตรูพืช
         Button Inscet = (Button)findViewById(R.id.buttonInscet);
         Inscet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +31,7 @@ public class nourish extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+//คลิกไปดูรายชื่อวัชพืช
         Button Weed = (Button)findViewById(R.id.buttonWeed);
         Weed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +40,7 @@ public class nourish extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+//คลิกไปดูรายชื่อปุ๋ย
         Button Fertilizer = (Button)findViewById(R.id.buttonFertilizar);
         Fertilizer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +49,7 @@ public class nourish extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+//คลิกไปดูเว็บราคาข้าว
         Button Price = (Button)findViewById(R.id.buttonPrice);
         Price.setOnClickListener(new View.OnClickListener() {
             @Override

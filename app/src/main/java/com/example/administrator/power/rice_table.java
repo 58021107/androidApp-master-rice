@@ -45,12 +45,13 @@ public class rice_table extends AppCompatActivity {
         ListView listView = findViewById(R.id.rice_lists);
         mQueue = Volley.newRequestQueue(this);
 
-
+//รับข้อมูลแบบ Json
         getJson(listView);
     }
 
 
     private void getJson(final ListView listView) {
+        //ประกาศค่าที่รับเข้ามาในรูปแบบ String
         String soil;
         String irrigation;
         String weather;
@@ -76,6 +77,7 @@ public class rice_table extends AppCompatActivity {
 
 //        String url = "http://10.0.2.2/Project/data/rice_table.php?soil="+soil+"&irrigation="+irrigation+"&weather="+weather;
 //        Toast.makeText(rice_table.this,url, Toast.LENGTH_SHORT).show();
+        //รับข้อมูลเข้ามาแล้วให้แสดงรายชื่อ
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -89,9 +91,9 @@ public class rice_table extends AppCompatActivity {
                         rice_lists.add(new Data(rice_id, rice_name));
                     }
 
-
+//แสดงข้อมูลเป็นรายชื่อ
                     listView.setAdapter(adapter);
-
+//กดเข้าไปเป็นส่วนรายละเอียดของพันธุ์ข้าว
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

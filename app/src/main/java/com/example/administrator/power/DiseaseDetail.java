@@ -23,17 +23,17 @@ public class DiseaseDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.disease_detail);
-
+//ระบุ id ให้กับ ไฟล์ xml มารองรับกับหน้าจอแอพฯ
         TextView name = findViewById(R.id.disease_name);
         TextView symptom = findViewById(R.id.symptom);
         TextView protect = findViewById(R.id.protect);
         TextView warning = findViewById(R.id.warning);
         mQueue = Volley.newRequestQueue(this);
-
+//ดึงข้อมูลมาแสดงในรูปแบบ json
         getJson(name, symptom, protect, warning, savedInstanceState);
 
     }
-
+    //รับค่ารายชื่อที่ส่งมาแสดงออกหน้าจอ
     public void getJson(final TextView name, final TextView symptom, final TextView protect, final TextView warning, Bundle savedInstanceState) {
         String newString;
         String url = "";
@@ -50,7 +50,7 @@ public class DiseaseDetail extends AppCompatActivity {
             url = "http://10.0.2.2/project/data/DiseaseDetail.php?id="+newString;
         }
 
-
+//ดึงข้อมูล json จากฐานข้อมูลมาเก็บไว้ในตัวแปรที่มาลองรับในชื่อนั้นๆ
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

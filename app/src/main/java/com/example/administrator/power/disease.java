@@ -38,12 +38,12 @@ public class disease extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.list_disease);
         mQueue = Volley.newRequestQueue(this);
-
+//ดึงข้อมูลรายชื่อโรคข้าวมาแสดง
         getJson(listView);
     }
 
     public void getJson(final ListView listView) {
-
+//เรียกผ่าน url มาแสดงในรายการ listview
         String url = "http://10.0.2.2/project/data/disease.php";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -53,13 +53,14 @@ public class disease extends AppCompatActivity {
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject rice = response.getJSONObject(i);
-
+//แสดงรายชื่อโรคข้าวและ id โดนเรียกผ่าน id โดยคลิกที่ชื่อก่อน
                                 String  disease_id = rice.getString("disease_id");
                                 String disease_name = rice.getString("disease_name");
 
                                 disease_lists.add(new Data(disease_id, disease_name));
                             }
-
+//กดเข้าไปเป็นส่วนรายละเอียดของพโรคช้าว
+                            //ส่งค่ารายชื่อไป
                             RiceApdapter adapter = new RiceApdapter();
                             listView.setAdapter(adapter);
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

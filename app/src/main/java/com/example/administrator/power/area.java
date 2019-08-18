@@ -23,12 +23,13 @@ public class area extends AppCompatActivity implements AdapterView.OnItemSelecte
     private RadioButton radioSoidButton;
     private String radioSoidButtonId;
 
+    //หน้ากรอกข้อมูลขอคำแนะนำพันธุ์ข้าว
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_area);
-
+//ประกาศ spinner เลือกข้อมูลชนิดดิน,อากาศ
         Spinner spinner1 = findViewById(R.id.spinner1);
         Spinner spinner2 = findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
@@ -43,6 +44,8 @@ public class area extends AppCompatActivity implements AdapterView.OnItemSelecte
         spinner2.setOnItemSelectedListener(this);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
+
+        //บอกเงื่อนไขการเลือกข้อมูลในคลาส Display
         Display();
 
 
@@ -60,16 +63,20 @@ public class area extends AppCompatActivity implements AdapterView.OnItemSelecte
     }
 
     private void Display() {
+
+        //ประกาศ id ของปุ่ม button ที่กดเพื่อแสดงคำแนะนำ
+        //ประกาศ id ของ spinner เลือกข้อมูลชนิดดิน,สภาพอากาศ
         Button Display = findViewById(R.id.Display);
         final Spinner spinner1 = findViewById(R.id.spinner1);
         final Spinner spinner2 = findViewById(R.id.spinner2);
-
+//ประกาศ id ของ RadioGroup เลือกพื้นที่ชนประทาน
         final RadioGroup radioSoid = findViewById(R.id.radioSoil);
         final RadioButton radioButton1 = findViewById(R.id.radio_out);
         final RadioButton radioButton2 = findViewById(R.id.radio_in);
         Display.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //ภายในจะทำการเลือกข้อมูล 3 ชนิด เพื่อส่งค่าไป
                 String kindOfSoil = spinner1.getSelectedItem().toString();
                 String weathers = spinner2.getSelectedItem().toString();
 
@@ -85,6 +92,7 @@ public class area extends AppCompatActivity implements AdapterView.OnItemSelecte
 
 
 //                Toast.makeText(area.this,"aaaaaaaaaaaa",Toast.LENGTH_SHORT).show();
+                //การเลือกชนิดดิน ดินทราย,ดินเหนียว,ดินร่วน
                 if (kindOfSoil.equals("ดินทราย")){
                       kindOfSoilId = "1";
                 }else if (kindOfSoil.equals("ดินเหนียว")){
@@ -95,6 +103,7 @@ public class area extends AppCompatActivity implements AdapterView.OnItemSelecte
 
 
 //                Toast.makeText(area.this,"aaaaaaaaaaaa",Toast.LENGTH_SHORT).show();
+                //การเลือกพื้นที่ชนประทานนอก ใน
                 String selectRButton = "0";
 
                 if ((radioSoidButton.getText()).equals("นอก")){
@@ -104,7 +113,7 @@ public class area extends AppCompatActivity implements AdapterView.OnItemSelecte
                 }
 
 
-
+//การเลือกข้อมูลสภาพอากาศ อากาศร้อน,อากาศเย็น,อากาศแห้งแล้ง,อากาศเย็น+หมอก,อากาศร้อน+ฝนตก
                 if (weathers.equals("อากาศร้อน" )){
                     weathersId = "1";
                 }else if (weathers.equals("อากาศเย็น")){
@@ -121,6 +130,7 @@ public class area extends AppCompatActivity implements AdapterView.OnItemSelecte
 //                Toast.makeText(area.this,kindOfSoilId,Toast.LENGTH_SHORT).show();
 //                Toast.makeText(area.this,selectRButton,Toast.LENGTH_SHORT).show();
 //                Toast.makeText(area.this,weathersId,Toast.LENGTH_SHORT).show();
+                 //ส่วนกรอกข้อมูลเข้าไปยังแอพฯ
                 Intent intent = new Intent(area.this,rice_table.class);
                 intent.putExtra("s1",kindOfSoilId);
                 intent.putExtra("s2",selectRButton);

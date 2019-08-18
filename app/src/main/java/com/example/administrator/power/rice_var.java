@@ -12,7 +12,7 @@ public class rice_var extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rice_var);
-
+//คลิกไปยังพันธุ์ข้าว
         Button b5 = (Button)findViewById(R.id.button5);
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -21,7 +21,7 @@ public class rice_var extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+//คลิกไปยังวิธีเพาะปลูก
         Button b6 = (Button)findViewById(R.id.button6);
         b6.setOnClickListener(new View.OnClickListener() {
             @Override

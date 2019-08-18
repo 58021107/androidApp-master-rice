@@ -16,7 +16,7 @@ public class page3 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_page3, container, false);
-
+//คลิกไปยังพื้นที่เพาะปลูก กรอกข้อมูลจำนวนพื้นที่ ชนิดดิน พื้นที่ชลประทาน สภาพอากาศ
         Button CultivationArea = (Button) view.findViewById(R.id.buttonCultivationArea);
         CultivationArea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,7 +25,7 @@ public class page3 extends Fragment {
                 startActivity(intent);
             }
         });
-
+//คลิกไปยังการเพาะปลูก กรอกข้อมูลการเพาะปลูก
         Button Date = (Button) view.findViewById(R.id.buttonDate);
         Date.setOnClickListener(new View.OnClickListener() {
             @Override

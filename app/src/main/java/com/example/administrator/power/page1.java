@@ -19,7 +19,7 @@ public class page1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page1);
         progressBar = findViewById(R.id.progressBar);
-
+//ส่วนแสดงหน้าแรกก่อนเข้าแอพฯ จะมีรูปภาพ
         ImageButton I1 = (ImageButton)findViewById(R.id.imagerice);
         I1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,7 +29,7 @@ public class page1 extends AppCompatActivity {
             }
         });
 
-
+//รอ 200 นาที ก็จะเด้งไปยังหน้าเมนูหลัก
         new Thread(new Runnable() {
             public void run() {
                 while (progressStatus < 10) {

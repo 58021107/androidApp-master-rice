@@ -23,16 +23,16 @@ public class WeedDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weed_detail);
-
+//ระบุ id ให้กับ ไฟล์ xml มารองรับกับหน้าจอแอพฯ
         TextView weed_name = findViewById(R.id.weed_name);
         TextView weed_feature = findViewById(R.id.weed_feature);
         TextView weed_protect = findViewById(R.id.weed_protect);
         mQueue = Volley.newRequestQueue(this);
-
+//ดึงข้อมูลมาแสดงในรูปแบบ json
         getJson(weed_name, weed_feature, weed_protect, savedInstanceState);
 
     }
-
+    //รับค่ารายชื่อที่ส่งมาแสดงออกหน้าจอ
     public void getJson(final TextView weed_name, final TextView weed_feature, final TextView weed_protect, Bundle savedInstanceState) {
         String newString;
         String url = "";
@@ -49,7 +49,7 @@ public class WeedDetail extends AppCompatActivity {
             url = "http://10.0.2.2/project/data/WeedDetail.php?id="+newString;
         }
 
-
+//ดึงข้อมูล json จากฐานข้อมูลมาเก็บไว้ในตัวแปรที่มาลองรับในชื่อนั้นๆ
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

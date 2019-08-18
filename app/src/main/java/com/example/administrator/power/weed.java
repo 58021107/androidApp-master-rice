@@ -39,12 +39,12 @@ public class weed extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.weed_list);
         mQueue = Volley.newRequestQueue(this);
-
+//ดึงข้อมูลรายชื่อวัชพืชมาแสดง
         getJson(listView);
     }
 
     public void getJson(final ListView listView) {
-
+//เรียกผ่าน url มาแสดงในรายการ listview
         String url = "http://10.0.2.2/project/data/weed.php";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -54,13 +54,14 @@ public class weed extends AppCompatActivity {
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject json = response.getJSONObject(i);
-
+//แสดงรายชื่อวัชพืชและ id โดนเรียกผ่าน id โดยคลิกที่ชื่อก่อน
                                 String  weed_id = json.getString("weed_id");
                                 String weed_name = json.getString("weed_name");
 
                                 weed_lists.add(new Data(weed_id, weed_name));
                             }
-
+//กดเข้าไปเป็นส่วนรายละเอียดของวัชพืช
+                            //ส่งค่ารายชื่อไป
                             RiceApdapter adapter = new RiceApdapter();
                             listView.setAdapter(adapter);
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

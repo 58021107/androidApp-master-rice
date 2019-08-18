@@ -38,12 +38,12 @@ public class fertilizer extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.fertilizer_list);
         mQueue = Volley.newRequestQueue(this);
-
+//ดึงข้อมูลรายชื่อปุ๋ยมาแสดง
         getJson(listView);
     }
 
     public void getJson(final ListView listView) {
-
+//เรียกผ่าน url มาแสดงในรายการ listview
         String url = "http://10.0.2.2/project/data/fertilizer.php";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -53,13 +53,14 @@ public class fertilizer extends AppCompatActivity {
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject rice = response.getJSONObject(i);
-
+//แสดงรายชื่อปุ๋ยและ id โดนเรียกผ่าน id โดยคลิกที่ชื่อก่อน
                                 String  fertilizer_id = rice.getString("fertilizer_id");
                                 String fertilizer_name = rice.getString("fertilizer_name");
 
                                 fertilizer_lists.add(new Data(fertilizer_id, fertilizer_name));
                             }
-
+//กดเข้าไปเป็นส่วนรายละเอียดของปุ๋ย
+                            //ส่งค่ารายชื่อไป
                             RiceApdapter adapter = new RiceApdapter();
                             listView.setAdapter(adapter);
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

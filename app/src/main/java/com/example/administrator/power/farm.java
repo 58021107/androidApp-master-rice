@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class farm extends AppCompatActivity {
-
+//รายชื่อวิธีเพาะปลูก
     private RequestQueue mQueue;
     private List<Data> farm_lists = new ArrayList<>();
     private RiceApdapter adapter = new RiceApdapter();

@@ -40,12 +40,12 @@ public class rice extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.rice_list);
         mQueue = Volley.newRequestQueue(this);
-
+//ดึงข้อมูลรายชื่อพันธุ์ข้าวมาแสดง
         getJson(listView);
     }
 
     public void getJson(final ListView listView) {
-
+//เรียกผ่าน url มาแสดงในรายการ listview
         String url = "http://10.0.2.2/project/data/rice.php";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
@@ -55,7 +55,7 @@ public class rice extends AppCompatActivity {
                         try {
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject rice = response.getJSONObject(i);
-
+//แสดงรายชื่อพันธุ์ข้าวและ id โดนเรียกผ่าน id โดยคลิกที่ชื่อก่อน
                                 String  rice_id = rice.getString("rice_ta_id");
                                 String rice_name = rice.getString("rice_ta_name");
 
@@ -64,7 +64,8 @@ public class rice extends AppCompatActivity {
                             }
 
                             listView.setAdapter(adapter);
-
+//กดเข้าไปเป็นส่วนรายละเอียดของพันธุ์ข้าว
+                            //ส่งค่ารายชื่อไป
                             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
